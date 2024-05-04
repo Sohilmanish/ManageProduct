@@ -1,0 +1,210 @@
+<mvc:View controllerName="com.manish.manageproduct.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+    	<IconTabBar id="iconTabBar7" class="sapUiResponsiveContentPadding">
+		<items>
+				<IconTabFilter showAll="true" count="77" text="Products" key="All" >
+					<customData>
+						<BadgeCustomData visible="true"/>
+					</customData>
+					 <Table id="idProductsTable" mode="MultiSelect" inset="false"
+						items="{ path: '/Products', sorter: { path: 'ProductName', descending: false }, parameters: { 'expand': 'Supplier' } }">
+					<headerToolbar>
+						<OverflowToolbar>
+							<Title text="Products" level="H2"/>
+						</OverflowToolbar>	
+					</headerToolbar>
+					<!-- <ToolbarSpacer />
+					<SearchField width="16rem" id="searchField">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low" group="1"/>
+							</layoutData>
+						</SearchField> -->
+					<columns>
+						<Column>
+							<Text text="Product Name" />
+						</Column>
+						<Column	hAlign="Center">
+							<Text text="Supplier" />
+						</Column>
+						<Column hAlign="Center">
+							<Text text="Price" />
+						</Column>
+						<Column hAlign="Center">
+							<Text text="Units Ordered" />
+						</Column>
+						<Column hAlign="End">
+							<Text text="Units in Stockd" />
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem vAlign="Middle" type="Navigation">
+							<cells>
+							<Text text="{ProductName}" />
+							<Text text="{Supplier/CompanyName}" />
+							<Text text="{UnitPrice} EUR" />
+							<Text text="{UnitsOnOrder} PC"/>
+							<Text text="{UnitsInStock}" />
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+				</IconTabFilter>
+				<IconTabSeparator />
+
+				<IconTabFilter icon="sap-icon://sys-enter" Color="Positive" count="42" text="Plenty in Stock" key="Ok">
+					<customData>
+						<BadgeCustomData visible="true"/>
+					</customData>
+				 <Table id="idProductsTable2" mode="MultiSelect" inset="false"
+						items="{ path: '/Products', sorter: { path: 'ProductName' }, parameters: { 'expand': 'Supplier' },
+						filters:  [{ path : 'UnitsInStock', operator : 'GE', value1 :35 }]}"
+						>
+					<headerToolbar>
+						<OverflowToolbar>
+							<Title text="Products" level="H2"/>
+						</OverflowToolbar>	
+					</headerToolbar>
+					<!-- <ToolbarSpacer />
+					<SearchField width="16rem" id="searchField">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low" group="1"/>
+							</layoutData>
+						</SearchField> -->
+					<columns>
+						<Column>
+							<Text text="Product Name" />
+						</Column>
+						<Column	hAlign="Center">
+							<Text text="Supplier" />
+						</Column>
+						<Column hAlign="Center">
+							<Text text="Price" />
+						</Column>
+						<Column hAlign="Center">
+							<Text text="Units Ordered" />
+						</Column>
+						<Column hAlign="End">
+							<Text text="Units in Stockd" />
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem vAlign="Middle" type="Navigation" press="onPress">
+							<cells>
+							<Text text="{ProductName}" />
+							<Text text="{Supplier/CompanyName}" />
+							<Text text="{UnitPrice} EUR" />
+							<Text text="{UnitsOnOrder} PC"/>
+							<Text text="{UnitsInStock}" />
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>	
+				</IconTabFilter>
+
+				<IconTabFilter icon="sap-icon://message-warning" iconColor="Critical" count="9" text="Shortage" key="Heavy">
+					<customData>
+						<BadgeCustomData visible="true"/>
+					</customData>
+					<Table id="idProductsTable3" mode="MultiSelect" inset="false"
+							items="{ path: '/Products', sorter: { path: 'ProductName' }, parameters: { 'expand': 'Supplier' },
+							filters:  [{ path : 'UnitsInStock', operator : 'LE', value1 :20 }]}"
+							>
+						<headerToolbar>
+							<OverflowToolbar>
+								<Title text="Products" level="H2"/>
+							</OverflowToolbar>	
+						</headerToolbar>
+						<!-- <ToolbarSpacer />
+						<SearchField width="16rem" id="searchField">
+								<layoutData>
+									<OverflowToolbarLayoutData priority="Low" group="1"/>
+								</layoutData>
+							</SearchField> -->
+						<columns>
+							<Column>
+								<Text text="Product Name" />
+							</Column>
+							<Column	hAlign="Center">
+								<Text text="Supplier" />
+							</Column>
+							<Column hAlign="Center">
+								<Text text="Price" />
+							</Column>
+							<Column hAlign="Center">
+								<Text text="Units Ordered" />
+							</Column>
+							<Column hAlign="End">
+								<Text text="Units in Stockd" />
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem vAlign="Middle" type="Navigation">
+								<cells>
+								<Text text="{ProductName}" />
+								<Text text="{Supplier/CompanyName}" />
+								<Text text="{UnitPrice} EUR" />
+								<Text text="{UnitsOnOrder} PC"/>
+								<Text text="{UnitsInStock}" />
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>	
+				</IconTabFilter>
+
+				<IconTabFilter icon="sap-icon://inventory" iconColor="Negative" count="2" text="Out of Stock" key="Overweight">
+					<customData>
+						<BadgeCustomData visible="true"/>
+					</customData>
+					 <Table id="idProductsTable4" mode="MultiSelect" inset="false"
+						items="{ path: '/Products', sorter: { path: 'ProductName' }, parameters: { 'expand': 'Supplier' },
+						filters:  [{ path : 'UnitsInStock', operator : 'EQ', value1 :0 }]}">
+					<headerToolbar>
+						<OverflowToolbar>
+							<Title text="Products" level="H2"/>
+						</OverflowToolbar>	
+					</headerToolbar>
+					<!-- <ToolbarSpacer />
+					<SearchField width="16rem" id="searchField">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="Low" group="1"/>
+							</layoutData>
+						</SearchField> -->
+					<columns>
+						<Column>
+							<Text text="Product Name" />
+						</Column>
+						<Column	hAlign="Center">
+							<Text text="Supplier" />
+						</Column>
+						<Column hAlign="Center">
+							<Text text="Price" />
+						</Column>
+						<Column hAlign="Center">
+							<Text text="Units Ordered" />
+						</Column>
+						<Column hAlign="End">
+							<Text text="Units in Stockd" />
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem vAlign="Middle" type="Navigation">
+							<cells>
+							<Text text="{ProductName}" />
+							<Text text="{Supplier/CompanyName}" />
+							<Text text="{UnitPrice}  EUR" />
+							<Text text="{UnitsOnOrder}  PC"/>
+							<Text text="{UnitsInStock}" />
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+				</IconTabFilter>
+            
+		</items>
+		</IconTabBar>
+        </content>
+    </Page>
+</mvc:View>
