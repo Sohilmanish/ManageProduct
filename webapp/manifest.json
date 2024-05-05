@@ -101,7 +101,7 @@
           ]
         },
         {
-          "pattern": "category/{id}",
+          "pattern": "category/{pId}",
           "name": "category",
           "target": "category"
       }

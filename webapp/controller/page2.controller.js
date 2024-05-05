@@ -1,13 +1,17 @@
-sap.ui.define(
-    [
-        "sap/ui/core/mvc/Controller"
-    ],
-    function(BaseController) {
+sap.ui.define([
+  "sap/ui/core/mvc/Controller",
+  "sap/ui/core/UIComponent",
+  "sap/ui/model/json/JSONModel"
+],
+  /**
+   * @param {typeof sap.ui.core.mvc.Controller} Controller
+   */
+  function (Controller,UIComponent, JSONModel) {
       "use strict";
   
       return BaseController.extend("com.manish.manageproduct.controller.page2", {
         onInit: function () {
-            UIComponent.getRouterFor(this).getRoute("RouteViewSupplier").attachPatternMatched(this.onObjectMatched, this);
+            UIComponent.getRouterFor(this).getRoute("category").attachPatternMatched(this.onObjectMatched, this);
             
         },
 

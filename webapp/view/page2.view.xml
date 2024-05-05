@@ -12,7 +12,7 @@ xmlns:form="sap.ui.layout.form">
     busy="{objectView>/busy}"
     busyIndicatorDelay="{objectView>/delay}">
     <semantic:titleHeading>
-    <Title text="{ProductName}" />
+    <Title text="{S>/ProductName}" />
     </semantic:titleHeading>
     <semantic:headerContent>
             <FlexBox
@@ -22,12 +22,12 @@ xmlns:form="sap.ui.layout.form">
                     <ObjectAttribute
                         title="{i18n>ObjectProductIdText}"
                         text="{
-                        path: 'ProductID',
+                        path: 'S>/ProductID',
                         formatter: '.formatter.numberUnit'}"/>
                     <ObjectAttribute
                         title="{i18n>ObjectPriceTitle}"
                         text="{
-                        path: 'UnitPrice',
+                        path: 'S>/UnitPrice',
                         formatter: '.formatter.numberUnit'} EUR"/>
                 </Panel>
                 <Panel backgroundDesign="Transparent">
@@ -36,10 +36,10 @@ xmlns:form="sap.ui.layout.form">
                         unit="PC"
                         textAlign="End"
                         state="{
-                        path: 'UnitsInStock',
+                        path: 'S>/UnitsInStock',
                         formatter: '.formatter.quantityState'}"
                         number="{
-                        path: 'UnitsInStock',
+                        path: 'S>/UnitsInStock',
                         formatter: '.formatter.numberUnit'}">
                     </ObjectNumber>
                     <ObjectStatus
@@ -75,7 +75,7 @@ xmlns:form="sap.ui.layout.form">
                     columnsM="1">
                     <form:content>
                         <Label text="{i18n>ObjectSupplierName}"/>
-                        <Text text="{Supplier/CompanyName}"/>
+                        <Text text="{PD>/Supplier/CompanyName}"/>
                         <Label text="{i18n>ObjectSupplierAddress}"/>
                         <Text text="{Supplier/Address}"/>
                         <Label text="{i18n>ObjectSupplierZipcode} / {i18n>ObjectSupplierCity}"/>
