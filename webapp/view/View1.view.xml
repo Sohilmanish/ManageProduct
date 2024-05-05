@@ -9,7 +9,7 @@
 					<customData>
 						<BadgeCustomData visible="true"/>
 					</customData>
-					 <Table id="idProductsTable" mode="MultiSelect" inset="false"
+					 <Table id="idAllProductsTable" mode="MultiSelect" inset="false"
 						items="{ path: '/Products', sorter: { path: 'ProductName', descending: false }, parameters: { 'expand': 'Supplier' } }">
 					<headerToolbar>
 						<OverflowToolbar>
@@ -40,7 +40,7 @@
 						</Column>
 					</columns>
 					<items>
-						<ColumnListItem vAlign="Middle" type="Navigation">
+						<ColumnListItem vAlign="Middle" type="Navigation" press="onPress">
 							<cells>
 							<Text text="{ProductName}" />
 							<Text text="{Supplier/CompanyName}" />
@@ -141,7 +141,7 @@
 							</Column>
 						</columns>
 						<items>
-							<ColumnListItem vAlign="Middle" type="Navigation">
+							<ColumnListItem vAlign="Middle" type="Navigation" press="onPress">
 								<cells>
 								<Text text="{ProductName}" />
 								<Text text="{Supplier/CompanyName}" />
@@ -190,7 +190,7 @@
 						</Column>
 					</columns>
 					<items>
-						<ColumnListItem vAlign="Middle" type="Navigation">
+						<ColumnListItem vAlign="Middle" type="Navigation" press="onPress">
 							<cells>
 							<Text text="{ProductName}" />
 							<Text text="{Supplier/CompanyName}" />
@@ -206,5 +206,12 @@
 		</items>
 		</IconTabBar>
         </content>
+			<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Accept" text="Order" press="onOrder"/>
+				<Button type="Reject" text="Remove" press="onRemove"/>
+			</OverflowToolbar>
+		</footer>
     </Page>
 </mvc:View>

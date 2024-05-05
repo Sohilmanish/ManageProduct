@@ -12,7 +12,7 @@ xmlns:form="sap.ui.layout.form">
     busy="{objectView>/busy}"
     busyIndicatorDelay="{objectView>/delay}">
     <semantic:titleHeading>
-    <Title text="{S>/ProductName}" />
+    <Title text="{PD>/ProductName}" />
     </semantic:titleHeading>
     <semantic:headerContent>
             <FlexBox
@@ -22,12 +22,12 @@ xmlns:form="sap.ui.layout.form">
                     <ObjectAttribute
                         title="{i18n>ObjectProductIdText}"
                         text="{
-                        path: 'S>/ProductID',
+                        path: 'PD>/ProductID',
                         formatter: '.formatter.numberUnit'}"/>
                     <ObjectAttribute
                         title="{i18n>ObjectPriceTitle}"
                         text="{
-                        path: 'S>/UnitPrice',
+                        path: 'PD>/UnitPrice',
                         formatter: '.formatter.numberUnit'} EUR"/>
                 </Panel>
                 <Panel backgroundDesign="Transparent">
@@ -36,23 +36,23 @@ xmlns:form="sap.ui.layout.form">
                         unit="PC"
                         textAlign="End"
                         state="{
-                        path: 'S>/UnitsInStock',
+                        path: 'PD>/UnitsInStock',
                         formatter: '.formatter.quantityState'}"
                         number="{
-                        path: 'S>/UnitsInStock',
+                        path: 'PD>/UnitsInStock',
                         formatter: '.formatter.numberUnit'}">
                     </ObjectNumber>
                     <ObjectStatus
                         text="{i18n>ObjectDiscontinuedStatusText}"
                         state="Error"
-                        visible="{path:'Discontinued'}"/>
+                        visible="{path:'PD>/Discontinued'}"/>
                     <ProgressIndicator
                         width="300px"
-                        percentValue="{UnitsInStock}"
-                        displayValue="{UnitsInStock}"
+                        percentValue="{PD>/UnitsInStock}"
+                        displayValue="{PD>/UnitsInStock}"
                         showValue="true"
                         state="{
-                        path: 'UnitsInStock',
+                        path: 'PD>/UnitsInStock',
                         formatter: '.formatter.quantityState'}"/>
                 </Panel>
             </FlexBox>
@@ -75,13 +75,13 @@ xmlns:form="sap.ui.layout.form">
                     columnsM="1">
                     <form:content>
                         <Label text="{i18n>ObjectSupplierName}"/>
-                        <Text text="{PD>/Supplier/CompanyName}"/>
+                        <Text text="{S>/CompanyName}"/>
                         <Label text="{i18n>ObjectSupplierAddress}"/>
-                        <Text text="{Supplier/Address}"/>
+                        <Text text="{S>/Address}"/>
                         <Label text="{i18n>ObjectSupplierZipcode} / {i18n>ObjectSupplierCity}"/>
-                        <Text text="{Supplier/PostalCode} / {Supplier/City}"/>
+                        <Text text="{S>/PostalCode} / {Supplier/City}"/>
                         <Label text="{i18n>ObjectSupplierCountry}"/>
-                        <Text text="{Supplier/Country}"/>
+                        <Text text="{S>/Country}"/>
                     </form:content>
                 </form:SimpleForm>
             </content>
